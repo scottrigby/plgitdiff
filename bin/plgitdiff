@@ -1,0 +1,48 @@
+#!/bin/bash
+
+## @file
+## Shows git diff of tracked plist files.
+##
+## @see http://confusatory.org/post/133141617492/git-diff-for-binary-apple-property-list-files
+##
+## Usage:
+## See man plgitdiff
+
+# Ensure we are in a git directory, because this command doesn't make sense
+# otherwise.
+status=$(git status 2> /dev/null)
+if [ $? == 128 ]; then
+  echo 'You are not in a git working tree.'
+  exit 1
+fi
+
+# We set matching git config and attributes within the current project only, so
+# that we can easily cleanup afterwards.
+git config diff.plist.textconv "plutil -convert xml1 -o -"
+echo "*.plist diff=plist" >> .gitattributes
+
+# Check that this worked with:
+# @code
+# git config --get diff.plist.textconv && cat .gitattributes
+# @endcode
+
+# Accept any args for git diff. Also, --color will preserve diff colors on
+# output.
+diff=$(git diff --color "$@")
+echo "$diff"
+
+# Clean up our git config and attributes, to be good citizens.
+git config --remove-section diff.plist
+sed -i '' '/*.plist diff=plist/d' .gitattributes
+
+git ls-files .gitattributes --error-unmatch &> /dev/null
+if [ $? == 1 ]; then
+  # The file is not tracked by git.
+  [[ $(tr -d "\r\n" < .gitattributes|wc -c) -eq 0 ]]
+  if [ $? == 0 ]; then
+    echo 'empty'
+    # If local git attributes file is not tracked by git, and now empty, remove
+    # it.
+    rm .gitattributes
+  fi
+fi
