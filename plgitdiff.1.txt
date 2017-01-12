@@ -1,5 +1,5 @@
 PLGITDIFF(1)
-=========
+============
 :doctype: manpage
 
 
