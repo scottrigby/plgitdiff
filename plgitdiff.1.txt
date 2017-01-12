@@ -1,0 +1,65 @@
+PLGITDIFF(1)
+=========
+:doctype: manpage
+
+
+NAME
+----
+plgitdiff - Shows git commit changes for plist files
+
+
+SYNOPSIS
+--------
+*plgitdiff* [options] [<commit>] [--] [<path>...]
+*plgitdiff* [options] --cached [<commit>] [--] [<path>...]
+*plgitdiff* [options] <commit> <commit> [--] [<path>...]
+*plgitdiff* [options] <blob> <blob>
+*plgitdiff* [options] [--no-index] [--] <path> <path>
+
+
+DESCRIPTION
+-----------
+The plgitdiff(1) command shows git commit changes for plist files.
+
+Because plist files are binary, git diff does not display the commit
+differences. However, there are cases where examining this is
+valuable. For example, when comparing a git-tracked, system-altered
+plist config file to the last committed state.
+
+
+OPTIONS
+-------
+plgitdiff(1) accepts all options for git diff.
+
+
+BUGS
+----
+Feel free to report issues, share ideas, and make pull requests at
+https://github.com/scottrigby/plgitdiff
+
+
+AUTHOR
+------
+Scott Rigby <scott@r6by.com>
+
+
+SEE ALSO
+--------
+pldiff(1)
+
+
+COPYRIGHT
+---------
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program as the file LICENSE.txt; if not, please see
+http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
