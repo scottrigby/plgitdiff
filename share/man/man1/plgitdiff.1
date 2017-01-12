@@ -1,0 +1,58 @@
+'\" t
+.\"     Title: plgitdiff
+.\"    Author: [see the "AUTHOR" section]
+.\" Generator: DocBook XSL Stylesheets v1.79.1 <http://docbook.sf.net/>
+.\"      Date: 01/12/2017
+.\"    Manual: \ \&
+.\"    Source: \ \&
+.\"  Language: English
+.\"
+.TH "PLGITDIFF" "1" "01/12/2017" "\ \&" "\ \&"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+plgitdiff \- Shows git commit changes for plist files
+.SH "SYNOPSIS"
+.sp
+\fBplgitdiff\fR [options] [<commit>] [\-\-] [<path>\&...] \fBplgitdiff\fR [options] \-\-cached [<commit>] [\-\-] [<path>\&...] \fBplgitdiff\fR [options] <commit> <commit> [\-\-] [<path>\&...] \fBplgitdiff\fR [options] <blob> <blob> \fBplgitdiff\fR [options] [\-\-no\-index] [\-\-] <path> <path>
+.SH "DESCRIPTION"
+.sp
+The plgitdiff(1) command shows git commit changes for plist files\&.
+.sp
+Because plist files are binary, git diff does not display the commit differences\&. However, there are cases where examining this is valuable\&. For example, when comparing a git\-tracked, system\-altered plist config file to the last committed state\&.
+.SH "OPTIONS"
+.sp
+plgitdiff(1) accepts all options for git diff\&.
+.SH "BUGS"
+.sp
+Feel free to report issues, share ideas, and make pull requests at https://github\&.com/scottrigby/plgitdiff
+.SH "AUTHOR"
+.sp
+Scott Rigby <scott@r6by\&.com>
+.SH "SEE ALSO"
+.sp
+pldiff(1)
+.SH "COPYRIGHT"
+.sp
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version\&.
+.sp
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE\&. See the GNU General Public License for more details\&.
+.sp
+You should have received a copy of the GNU General Public License along with this program as the file LICENSE\&.txt; if not, please see http://www\&.gnu\&.org/licenses/old\-licenses/gpl\-2\&.0\&.txt\&.
